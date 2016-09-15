@@ -1,0 +1,52 @@
+<md-dialog aria-label="Add Subscription" flex-sm="66" flex-gt-sm="40" flex-xs="100">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add Subscription</h2>
+            </div>
+        </md-toolbar>
+        <leaflet width="100%" height="250px" lf-center="center" markers="markers" event-broadcast="mapevents"></leaflet>
+        <md-dialog-content layout-padding layout="column" class="md-no-momentum" ng-cloak>
+            <p>Actual marker position (lat/lng): <strong ng-bind="latlng.lat"></strong> / <strong ng-bind="latlng.lng"></strong></p>
+            <h4 class="md-subhead" style="margin-top: 0px; margin-bottom: -8px;"><strong>Subscription Label</strong></h4>
+            <md-input-container class="md-icon-float md-block" style="margin-right: 16px; margin-left: 16px; margin-bottom: 0px;">
+                <label>Label</label>
+                <md-icon class="material-icons">subscriptions</md-icon>
+                <input ng-model="label" type="text">
+            </md-input-container>
+
+            <h4 class="md-subhead" style="margin-top: 0px; margin-bottom: -8px;"><strong>End of Life</strong></h4>
+            <div layout="row" flex>
+                <mdp-date-picker mdp-open-on-click required name="dateFormat" mdp-placeholder="My date(dd/mm/yyyy)" mdp-format="DD/MM/YYYY" ng-model="currentTime" flex="50">
+                    <!-- <div ng-messages="demoForm.dateFormat.$error">
+                  <span ng-message="required">This is required</span>
+                  <span ng-message="format">Invalid format</span>
+                </div> -->
+                </mdp-date-picker>
+
+                <mdp-time-picker mdp-auto-switch="true" ng-model="currentTime" flex="50"></mdp-time-picker>
+            </div>
+
+
+            <fieldset class="demo-fieldset" layout-padding>
+                <legend>Delivery Methods</legend>
+                <div flex="100" ng-repeat="method in deliveryMethods">
+                    <md-checkbox aria-label="method.label" class="md-warn md-align-top-left" ng-checked="exists(method, selectedMethods)" ng-click="toggle(method, selectedMethods)" flex>
+                        {{ method.label }}
+                    </md-checkbox>
+                    <div ng-if="exists(method, selectedMethods)" layout-gt-sm="row">
+                        <md-input-container ng-repeat="parameter in getParamsForMethod(method)" class="md-block" flex-gt-sm>
+                            <label>{{ parameter.label }}</label>
+                            <input ng-model="parameter.value" />
+                        </md-input-container>
+                    </div>
+                </div>
+            </fieldset>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <span flex></span>
+            <md-button ng-click="cancel()">Cancel</md-button>
+            <md-button ng-click="submit()">Add</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

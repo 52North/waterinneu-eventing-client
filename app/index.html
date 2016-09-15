@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventingClient">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eventing</title>
+
+    <!-- bower:css -->
+    <!-- endInject -->
+    <!-- inject:css -->
+    <!-- endInject -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body ng-controller="MainCtrl" layout-fill layout="column">
+    <md-toolbar class="md-hue-2" ng-cloak>
+        <div class="md-toolbar-tools">
+            <h2><span>Eventing REST Api Client</span></h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <div layout="row" flex>
+        <md-content  ng-controller="MapCtrl" flex="70">
+            <leaflet lf-center="london" markers="markers" event-broadcast="events" style="position:absolute;" width="100%" height="100%"></leaflet>
+        </md-content>
+
+        <panel-directive flex="30" ng-cloak></panel-directive>
+    </div>
+
+    <!-- bower:js -->
+    <!-- endInject -->
+    <!-- inject:js -->
+    <!-- endinject -->
+</body>
+
+</html>

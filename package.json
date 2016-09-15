@@ -1,0 +1,33 @@
+{
+  "name": "eventing-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "bower install && gulp build"
+  },
+  "author": "",
+  "license": "Apache2",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "browserify": "^13.1.0",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.1.0",
+    "gulp-inject": "^4.1.0",
+    "gulp-ruby-sass": "^2.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-webserver": "^0.9.1",
+    "main-bower-files": "^2.13.1",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "stream-series": "^0.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "engines": {
+    "node": "5.10.1",
+    "bower": "1.7.9"
+  }
+}

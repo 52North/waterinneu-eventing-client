@@ -1,0 +1,29 @@
+<md-list flex>
+    <md-subheader class="md-no-sticky">Active Subscription</md-subheader>
+
+    <md-list-item class="md-3-line" ng-repeat="subscription in subscriptions" flex ng-mouseover="onHover($event, subscription)" class="noright">
+        <md-icon class="material-icons" ng-style="{ 'font-size': '32px', height: '32px', width: '32px' }">pin_drop</md-icon>
+        <div class="md-list-item-text">
+            <h3>{{ subscription.label }}</h3>
+            <p>{{ subscription.description }}</p>
+        </div>
+
+        <md-menu>
+            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon class="material-icons md-secondary">more_vert</md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="deleteSubscription(subscription)">
+                        Delete Subscription
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="showEventsDialog(subscription)">
+                        Show Events
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </md-list-item>
+</md-list>

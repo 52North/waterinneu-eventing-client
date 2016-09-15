@@ -1,0 +1,29 @@
+<md-dialog aria-label="events" ng-cloak flex="45">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Events for "{{ subscription.label }}"</h2>
+            <span flex></span>
+            <md-button class="md-icon-button">
+                <md-icon class="material-icons" ng-click="close()" aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <md-list flex>
+            <md-subheader class="md-no-sticky">Past Events ({{ events.length }} found)</md-subheader>
+            <md-list-item class="md-3-line" ng-repeat="event in events" flex>
+
+                <md-icon class="material-icons">event</md-icon>
+                <div class="md-list-item-text">
+                    <h3>{{ event.time | isoToUtc }}</h3>
+                    <p>{{ event.label }}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button ng-click="close()">
+            Close
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
